@@ -31,7 +31,7 @@ function SuperSimpleDB(path) {
   }
 
   function write(json) {
-    fs.writeFileSync(path, JSON.stringify(json));
+    fs.writeFileSync(path, JSON.stringify(json, null, 2));
   }
 }
 
