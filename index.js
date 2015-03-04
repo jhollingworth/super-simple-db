@@ -9,7 +9,13 @@ function SuperSimpleDB(path) {
   this.set = set;
 
   function get(key) {
-    return read()[key];
+    var json = read();
+
+    if (!key) {
+      return json;
+    }
+
+    return json[key];
   }
 
   function set(key, value) {
