@@ -7,6 +7,7 @@ function SuperSimpleDB(path) {
 
   this.get = get;
   this.set = set;
+  this.delete = del;
 
   function get(key) {
     var json = read();
@@ -16,6 +17,14 @@ function SuperSimpleDB(path) {
     }
 
     return json[key];
+  }
+
+  function del(key) {
+    var json = read();
+
+    delete json[key];
+
+    write(json);
   }
 
   function set(key, value) {
